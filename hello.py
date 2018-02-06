@@ -1,4 +1,4 @@
-import pygame, sys
+import pygame, sys, time
 
 from pygame.locals import *
 
@@ -20,10 +20,15 @@ DISPLAYSURF.fill(WHITE)
 #pygame.draw.polygon(DISPLAYSURF, GREEN, ((196,30),(341,136),(286,307),(106,307),(50,136)))
 
 x = 5
+diff = 5
+x_vector = 1
+y_vector = 1
 
-while True: # main game loop
+while True: # main game loop    
 
   for event in pygame.event.get():
+
+    DISPLAYSURF.fill(WHITE)  
 
     if event.type == QUIT:
 
@@ -31,9 +36,12 @@ while True: # main game loop
 
       sys.exit()
 
-    pygame.draw.polygon(DISPLAYSURF, GREEN, ((196+x,30+x),(341+x,136+x),(286+x,307+x),(106+x,307+x),(50+x,136+x)))
+    else:
 
-    x+=5
+      pygame.draw.polygon(DISPLAYSURF, GREEN, ((196+x_vector, 30+y_vector),(341+x_vector, 136+y_vector),(286+x_vector,307+y_vector),(106+x_vector,307+y_vector),(50+x_vector,136+y_vector)))
 
+      if x_vector < 50:
+        x_vector += 5
+        y_vector += 5
 
     pygame.display.update()
