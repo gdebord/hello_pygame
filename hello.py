@@ -1,4 +1,4 @@
-import pygame, sys, time, math
+import pygame, sys, time, math, random
 
 from pygame.locals import *
 
@@ -21,8 +21,8 @@ DISPLAYSURF.fill(WHITE)
 
 x = 200
 y = 200
-x_vector = 5
-y_vector = 5
+x_vector = random.randrange(-5,6)
+y_vector = random.randrange(-5,6)
 
 while True: # main game loop  
 
