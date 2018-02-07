@@ -1,4 +1,4 @@
-import pygame, sys, time
+import pygame, sys, time, math
 
 from pygame.locals import *
 
@@ -19,16 +19,20 @@ BLUE = (0,0,255)
 DISPLAYSURF.fill(WHITE)
 #pygame.draw.polygon(DISPLAYSURF, GREEN, ((196,30),(341,136),(286,307),(106,307),(50,136)))
 
-x = 5
-diff = 5
-x_vector = 1
-y_vector = 1
+x = 200
+y = 200
+x_vector = 5
+y_vector = 5
 
-while True: # main game loop    
+while True: # main game loop  
+
+  DISPLAYSURF.fill(WHITE)
+  pygame.draw.circle(DISPLAYSURF, GREEN, (x,y), 10, 0)  
 
   for event in pygame.event.get():
 
-    DISPLAYSURF.fill(WHITE)  
+    DISPLAYSURF.fill(WHITE)
+    #pygame.draw.circle(DISPLAYSURF, GREEN, (200,200), 10, 0)
 
     if event.type == QUIT:
 
@@ -38,10 +42,22 @@ while True: # main game loop
 
     else:
 
-      pygame.draw.polygon(DISPLAYSURF, GREEN, ((196+x_vector, 30+y_vector),(341+x_vector, 136+y_vector),(286+x_vector,307+y_vector),(106+x_vector,307+y_vector),(50+x_vector,136+y_vector)))
+      #pygame.draw.polygon(DISPLAYSURF, GREEN, ((196+x_vector, 30+y_vector),(341+x_vector, 136+y_vector),(286+x_vector,307+y_vector),(106+x_vector,307+y_vector),(50+x_vector,136+y_vector)))
+      x = math.floor(x + x_vector)
+      y = math.floor(y + y_vector)
+      pygame.draw.circle(DISPLAYSURF, GREEN, (x , y), 10, 0)
 
-      if x_vector < 50:
-        x_vector += 5
-        y_vector += 5
+      if (x > 400):
+        x_vector *= -1
+        x = 399
+      elif (y > 400):
+        y_vector *= -1
+        y = 399
+      elif (x < 0):
+        x_vector *= -1
+        x = 1
+      elif (y < 0):
+        y_vector *= -1
+        y = 1
 
     pygame.display.update()
