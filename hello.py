@@ -28,7 +28,28 @@ while True: # main game loop
   DISPLAYSURF.fill(WHITE)
   pygame.draw.circle(DISPLAYSURF, GREEN, (x,y), 10, 0)  
 
+  x = math.floor(x + x_vector)
+  y = math.floor(y + y_vector)
+  pygame.draw.circle(DISPLAYSURF, GREEN, (x , y), 10, 0)
+
+  if (x > 400):
+    x_vector *= -1
+    x = 399
+  elif (y > 400):
+    y_vector *= -1
+    y = 399
+  elif (x < 0):
+    x_vector *= -1
+    x = 1
+  elif (y < 0):
+    y_vector *= -1
+    y = 1
+
+  pygame.display.update()
+"""
   for event in pygame.event.get():
+
+    print(event)
 
     DISPLAYSURF.fill(WHITE)
 
@@ -56,5 +77,5 @@ while True: # main game loop
       elif (y < 0):
         y_vector *= -1
         y = 1
-
-    pygame.display.update()
+"""
+  #pygame.display.update()
