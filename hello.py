@@ -4,7 +4,7 @@ from pygame.locals import *
 
 pygame.init()
 
-DISPLAYSURF = pygame.display.set_mode((400, 400))
+DISPLAYSURF = pygame.display.set_mode((800, 800))
 
 pygame.display.set_caption('Hello World!')
 
@@ -20,7 +20,7 @@ DISPLAYSURF.fill(WHITE)
 
 x = 200
 y = 200
-x_vector = random.randrange(-5,6)
+x_vector = random.randrange(-15,6)
 y_vector = random.randrange(-5,6)
 done = False
 
@@ -36,12 +36,12 @@ while not done: # main game loop
   y = math.floor(y + y_vector)
   pygame.draw.circle(DISPLAYSURF, GREEN, (x , y), 10, 0)
 
-  if (x > 400):
+  if (x > 800):
     x_vector *= -1
-    x = 399
-  elif (y > 400):
+    x = 799
+  elif (y > 800):
     y_vector *= -1
-    y = 399
+    y = 799
   elif (x < 0):
     x_vector *= -1
     x = 1
