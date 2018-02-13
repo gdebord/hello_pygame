@@ -4,7 +4,10 @@ from pygame.locals import *
 
 pygame.init()
 
-DISPLAYSURF = pygame.display.set_mode((800, 800))
+XSCREEN = 500
+YSCREEN = 500
+
+DISPLAYSURF = pygame.display.set_mode((XSCREEN, YSCREEN))
 
 pygame.display.set_caption('Hello World!')
 
@@ -18,10 +21,10 @@ BLUE = (0,0,255)
 # draw on the surface object
 DISPLAYSURF.fill(WHITE)
 
-x = 200
-y = 200
+x = XSCREEN / 2
+y = YSCREEN / 2
 x_vector = random.randrange(-15,6)
-y_vector = random.randrange(-5,6)
+y_vector = random.randrange(-25,26)
 done = False
 
 while not done: # main game loop  
@@ -36,12 +39,12 @@ while not done: # main game loop
   y = math.floor(y + y_vector)
   pygame.draw.circle(DISPLAYSURF, GREEN, (x , y), 10, 0)
 
-  if (x > 800):
+  if (x > XSCREEN):
     x_vector *= -1
-    x = 799
-  elif (y > 800):
+    x = XSCREEN - 1
+  elif (y > YSCREEN):
     y_vector *= -1
-    y = 799
+    y = YSCREEN - 1
   elif (x < 0):
     x_vector *= -1
     x = 1
