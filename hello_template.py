@@ -3,7 +3,7 @@ from pygame.locals import *
 
 pygame.init()
 
-DISPLAY = pygame.display.set_mode((400, 400))
+DISPLAYSURFACE = pygame.display.set_mode((400, 400))
 
 pygame.display.set_caption('Hello World!')
 
@@ -19,13 +19,13 @@ x = 200
 y = 200
 
 # draw a white screen
-DISPLAY.fill(BLACK)
+DISPLAYSURFACE.fill(BLACK)
 
 # main game loop (infinite loop)
 while True:  
 
   # draw a green circle at the given x,y coordinates
-  pygame.draw.circle(DISPLAY, BLUE, (x , y), 10, 0)
+  pygame.draw.circle(DISPLAYSURFACE, BLUE, (x , y), 10, 0)
 
   # if the user clicks to close the window, the program exits
   for event in pygame.event.get():
