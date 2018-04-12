@@ -18,13 +18,13 @@ BLUE = (0,0,255)
 x = 200
 y = 200
 
-# draw a white screen
+# draw a black screen
 DISPLAYSURFACE.fill(BLACK)
 
 # main game loop (infinite loop)
 while True:  
 
-  # draw a green circle at the given x,y coordinates
+  # draw a blue circle at the given x,y coordinates
   pygame.draw.circle(DISPLAYSURFACE, BLUE, (x , y), 10, 0)
 
   # if the user clicks to close the window, the program exits
