@@ -57,8 +57,8 @@ while not done: # main game loop
 
   DISPLAYSURF.fill(BLACK) # fill black background
 
-  draw_text(DISPLAYSURF, str(score1), 80, 125, 10) # draw left score
-  draw_text(DISPLAYSURF, str(score2), 80, 325, 10) # draw right score
+  draw_text(DISPLAYSURF, str(x2), 80, 125, 10) # draw left score
+  draw_text(DISPLAYSURF, str(y2), 80, 325, 10) # draw right score
 
   pygame.draw.circle(DISPLAYSURF, WHITE, (x , y), 10, 0) # draw circle
 
